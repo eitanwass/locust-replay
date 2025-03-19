@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "locust_replay"
+version = "0.1.0"
+description = "A locust (locust-io) extension to replay APM recorded requests"
+authors = ["eitanwass <eitanwass@gmail.com>"]
+license = "Apache License 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+locust = "^2.33.2"
+attrs = "^25.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest-cov = "^6.0.0"
+ruff = "^0.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "--cov=locust_replay --cov-report term-missing --no-cov-on-fail"
+
+[tool.coverage.run]
+omit = ["tests/*"]
+
+[tool.ruff]
+lint.select = ["E", "F", "B", "W"]
+line-length = 100
